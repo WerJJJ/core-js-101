@@ -174,8 +174,8 @@ function unbracketTag(str) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(/* str */) {
-  throw new Error('Not implemented');
+function convertToUpperCase(str) {
+  return str.toUpperCase();
 }
 
 /**
@@ -193,8 +193,8 @@ function convertToUpperCase(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
@@ -241,8 +241,26 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if ((str.charCodeAt(i) >= 97 && str.charCodeAt(i) <= 122) || (str.charCodeAt(i) >= 65
+     && str.charCodeAt(i) <= 90)) {
+      if (str.charCodeAt(i) - 97 < 13 && str.charCodeAt(i) - 97 >= 0) {
+        result += String.fromCharCode(str.charCodeAt(i) + 13);
+      } else if (str.charCodeAt(i) - 97 >= 13 && str.charCodeAt(i) - 97 >= 0) {
+        result += String.fromCharCode(str.charCodeAt(i) - 13);
+      }
+      if (str.charCodeAt(i) - 65 < 13 && str.charCodeAt(i) - 65 <= 26) {
+        result += String.fromCharCode(str.charCodeAt(i) + 13);
+      } else if (str.charCodeAt(i) - 65 >= 13 && str.charCodeAt(i) - 65 <= 26) {
+        result += String.fromCharCode(str.charCodeAt(i) - 13);
+      }
+    } else {
+      result += str[i];
+    }
+  }
+  return result;
 }
 
 /**
@@ -258,10 +276,9 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  return Object.prototype.toString.call(value) === '[object String]';
 }
-
 
 /**
  * Returns playid card id.
