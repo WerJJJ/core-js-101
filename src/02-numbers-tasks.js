@@ -51,8 +51,9 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+function getAverage(/* value1, value2 */) {
+  /* return (value1 + value2) / 2; */
+  throw new Error('Not implemented');
 }
 /**
  * Returns a distance beetween two points by cartesian coordinates.
@@ -110,14 +111,15 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const x = x2 - x1;
+function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
+  /* const x = x2 - x1;
   const y = y2 - y1;
   let max;
   if (Math.abs(x) > Math.abs(y)) max = x;
   else max = y;
   if (x === y) return 0;
-  return Math.abs(max * (Math.PI / 2));
+  return Math.abs(max * (Math.PI / 2)); */
+  throw new Error('Not implemented');
 }
 
 /**
@@ -187,12 +189,13 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(num, pow) {
+function roundToPowerOfTen(/* num, pow */) {
   /* const str = String(num);
   let res = '';
   for (let i = 0; i < str.length - pow; i += 1) res += str[i];
   for (let i = str.length - pow; i < str.length; i += 1) res += 0;
   return +res; */
+  throw new Error('Not implemented');
 }
 
 /**
