@@ -189,13 +189,15 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  /* const str = String(num);
+function roundToPowerOfTen(num, pow) {
+  const str = String(num);
   let res = '';
-  for (let i = 0; i < str.length - pow; i += 1) res += str[i];
+  for (let i = 0; i < str.length - pow; i += 1) {
+    if (str[i + 1] >= 5 && i === str.length - pow - 1) res += (+str[i] + 1);
+    else res += str[i];
+  }
   for (let i = str.length - pow; i < str.length; i += 1) res += 0;
-  return +res; */
-  throw new Error('Not implemented');
+  return +res;
 }
 
 /**
@@ -215,8 +217,13 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  for (let i = 2; i <= n / 2; i += 1) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -234,8 +241,9 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  if (Number.isNaN(+value)) return def;
+  return +value;
 }
 
 module.exports = {
